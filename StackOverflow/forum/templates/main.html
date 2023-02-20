@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'StackOverflow/css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна</title>
+</head>
+<body>
+    
+    <header>
+        <div class="main_conteiner">
+            
+            <div class = "main_title">
+                <h1>S o m e U n d e r b l o b s</h1>
+            </div>
+
+        </div>
+    </header>
+            <div class = "buttons">
+                <a href="create_question" class="add">+ Створити питання</a>
+            </div>
+    <main>
+        <hr class="main_hr">
+        {% for question in questions %}
+            <a href = 'question/{{ question.pk }}'>
+                <div class="container">
+                    <div class="child_container">
+
+                        <div class="question_container">
+                            <h2>{{ question.title }}</h2>
+                            <p class="text_q">{{ question.text }}</p>
+                        </div>
+                    
+                        <div class="author_container">
+                            <hr class="container_hr">
+                            <h5>Автор: {{ question.author }}</h5>
+                        </div>
+                    
+                    </div> 
+                </div>
+            </a>
+
+        {% endfor %}
+        
+    </main>
+
+</body>
+</html>

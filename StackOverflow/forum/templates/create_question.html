@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'StackOverflow/css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div class="main_conteiner">
+            
+            <div class = "main_title">
+                <h1>S o m e U n d e r b l o b s</h1>
+            </div>
+
+        </div>
+    </header>
+
+
+	<div class = "buttons">
+		<a href=".." class="add">Повернутися</a>
+    </div>
+
+    <div class="add_question">
+        <h2>Додати ваше запитання</h2>
+    </div>
+    
+
+    <p>{{ success_text }}</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="create_question">
+
+            <p class="name">Ваше ім'я: <input type="text" name="author" placeholder="Ваше ім'я" required></p>
+
+            <p class="name">Тема запитання: <input type="text" name="title" placeholder="Тема запитання" required></p>
+                <textarea 
+                    name="text" 
+                    id="" 
+                    cols="30" 
+                    rows="10"
+                    placeholder="Питання"
+                    required></textarea>
+
+            <p><input class="button_add" type="submit" value="Створити"></p>  
+        </div>
+
+    </form>
+</body>
+</html>

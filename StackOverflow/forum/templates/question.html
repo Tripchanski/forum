@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'StackOverflow/css/style.css' %}">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{question.title}}</title>
+</head>
+
+<body>
+	<header>
+
+        <div class="main_conteiner">
+            
+            <div class = "main_title">
+                <h1>S o m e U n d e r b l o b s</h1>
+            </div>
+
+        </div>
+
+    </header>
+
+	<div class = "buttons">
+		<a href=".." class="add">Повернутися</a>
+        <a href="../create_question" class="add">+ Створити питання</a>
+    </div>
+
+
+	<div class="question_block">
+
+		<div class="question">
+
+			<h2 class="title_q_block">{{ question.title }}</h1>
+			<hr class="hr_q_block">
+			<p class="text_q_block">{{ question.text }}</p>
+			<hr class="hr_q_block">
+			<h5>Автор: {{ question.author }}</h5>
+
+		</div>
+	</div>
+
+	<hr class="main_hr">
+
+	<div class="block_answers">
+
+		<div class="answers">
+			<h2>Відповіді</h2>
+		</div>
+		
+
+		{% for answer in answers %}
+
+			<div class="answer">
+
+				<h5 class="answer_h5">Автор: {{ answer.author }}</h5>
+				<hr class="hr_q_block">
+				<p class="answer_p">{{ answer.text }}</p>
+
+			</div>
+
+		{% endfor %}
+
+	</div>
+
+	<hr class="main_hr">
+	
+
+
+	<form action="" method="POST">
+		
+	    {% csrf_token %}
+		<div class="answers">
+			<h2>Дати відповідь</h2>
+		</div>
+
+	    <div class="answer">
+
+			<div class="add_answer">
+
+				<p class="name">
+					Ваше ім'я: <input type="text" name="author" placeholder="Ваше ім'я" required />
+	    		</p>
+
+	    		<p>
+	    		  	<textarea
+	    		   		name="text"
+	    		  	 	id=""
+	    		  	  	cols="30"
+	    		    	rows="10"
+	    		    	placeholder="Ваша відповідь"
+						required
+	    		  ></textarea>
+	    		</p>
+
+	    		<p><input class="button_add" type="submit" value="Створити" /></p>
+			</div>
+		</div>
+
+
+	</form>
+
+
+</body>
+</html>
